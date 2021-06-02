@@ -1,0 +1,568 @@
+body { 
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    letter-spacing: 1.7px;
+    color: #0A2C09;
+    /*color: #F3F7FA; background
+    color: #50E948;   background-button*/
+}
+
+*, 
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+.title {
+    /* Чтобы спрятать часть линий, которые 
+    ** будут вылазить за пределы блока */
+    overflow: hidden;
+    text-align: center;
+    text-transform: uppercase;
+    padding-top: 25px;
+    font-size: 24px;
+}
+.title span {
+    display: inline-block;
+    vertical-align: middle;
+}
+.title:before,
+.title:after {
+    /* Обязательно указываем пустое свойство content, 
+    ** иначе псевдоэлементы не появятся на сайте */
+    content: "";
+    /* Указываем что наши линии будут строчно-блочные и 
+    ** выравнивание по высоте - по центру */
+    display: inline-block;
+    vertical-align: middle;
+    /* Задаем ширину 100% и выбираем высоту линии, 
+    ** в нашем примере она равна 4 пикселям */
+    width: 50px;
+    height: 1px;
+    /* Добавляем цвет для линии */
+    background-color: #000000;
+    /* Добавляем пседоэлемантам возможность изменить 
+    ** позицию линии, для создания отступов от текста */
+    position: relative;
+}
+.title:before {
+    /* Смещаем левую линию на 100% влево, чтобы линия 
+    ** встала рядом с текстом слева */
+    margin-left: -100%;
+    /* Указываем в пикселях отступ линии от текста заголовка */
+    left: -25px;
+}
+.title:after {
+    /* Смещаем правую линию на 100% вправо, чтобы 
+    ** линия встала рядом с текстом справа */
+    margin-right: -100%;
+    /* Указываем в пикселях отступ линии от текста заголовка */
+    right: -25px;
+}
+h1,h2,h3,h4,h5,h6 {
+    text-transform: uppercase;
+    margin: 0;
+    font-size: 36px;
+}
+
+p {
+    margin: 0;
+}
+
+/*Container
+*************************/
+
+.conteiner {
+    width: 100%;
+    max-width: 1366px;
+    margin: 0 auto;
+}
+
+
+
+
+/*HEADER
+*************************/
+.header {
+    width: 100%;
+    padding: 20px 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    
+}
+
+.header.fixed {
+    background: #f3f7f9;
+    
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    
+    transform: translate3d(0,0,0);
+}
+
+.header.active {
+    background: #f3f7f9;
+    background: #f3f7f9;
+}
+.header__inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+/*NAV
+*************************/
+.nav {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.nav__link {
+    text-transform: uppercase;
+    text-decoration: none;   
+    color: #0A2C09;
+    margin: 0 34px; 
+   
+        
+}
+
+.nav__link:hover {
+    text-decoration: underline;
+}
+
+
+
+/*Intro
+*************************/
+.intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 760px;
+    padding-top: 85px;
+    background: #f4f7f9 url(img/intro_bg.jpg) no-repeat;
+    background-position: center;
+}
+
+.intro__inner {
+    
+    text-align: center;
+    width: 100%;
+    max-width: 624px;
+    margin: 0 auto;
+    
+}
+.intro__title {
+    margin: 0;
+    
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;
+    line-height: 1.8;
+    font-weight: 500;
+    margin-bottom: 74px;
+    
+}
+
+/*Katalog
+*************************/
+
+.katalog {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 920px;
+    background: #ffffff url(img/katalog_bg.png) no-repeat;
+    background-position: center;
+    min-width: 0;
+}
+
+.katalog__inner {
+    
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;    
+}
+
+.katalog__title {
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 36px;
+    font-weight: 500;
+}
+
+.katalog__title1 {
+    margin: 25px;
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+/*Slider
+*************************/
+
+.slider {
+    position: relative;
+    padding: 0px 50px;
+    margin-top: 100px;
+}
+.slick-list {
+    overflow: hidden;
+}
+.slick-track {
+    display: flex;
+}
+
+.slider .slick-arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    font-size: 0;
+    width: 50px;
+    height: 54px;
+    border: 0;
+    margin: -30px 0px 0px 0px;
+    
+}
+
+.slider .slick-arrow.slick-prev {
+    left: 0;
+    background: url(img/Arrow_L.png) 0 0 / 100% no-repeat;
+}
+.slider .slick-arrow.slick-next {
+    right: 0;
+    background: url(img/Arrow_R.png) 0 0 / 100% no-repeat;
+}
+
+.slider .slick-arrow.slick-disabled {
+    opacity: 70%;
+}
+.slider .slick-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.slider .slick-dots li {
+    list-style: none;
+    margin: 0px 10px;
+}
+.slider .slick-dots button {
+    font-size: 0;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 25px;
+    /*display: inline-block;
+    vertical-align: top;
+    padding: 10px 46px;
+    border-radius: 45px;
+    
+    border: 3px solid #bcdab9;
+    margin: 40px 10px;
+   
+    font-size: 18px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #bcdab9; */
+}
+/*****************/
+.box__1 {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 214px;
+    height: 319px;
+    border: 2px solid #e0efe1;
+    border-radius: 39px;    
+}
+.box__1:hover {
+    box-shadow: 0 0 16px 0px rgb(8 8 8 / 25%);
+    box-shadow: inset 0 0 16px 0px rgb(8 8 8 / 25%);
+}
+
+.txt_in_box {
+    font-size: 16px;
+}
+.cena {
+    color: #28d61f;
+    margin-top: 10px;
+    font-size: 14px;
+    
+}
+/*Opisanie
+*************************/
+
+.opisanie {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 940px;
+    background: #ffffff url(img/opis_bg.png) no-repeat;
+    background-position: center;
+}
+
+.about__inner {
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.about__txt {
+    font-size: 18px;
+    width: 100%;
+    margin-top: 60px;
+    line-height: 2;
+    letter-spacing: inherit;
+}
+
+.about__icons{
+    display: flex;
+    flex-direction: row;
+    height: 170px;
+    justify-content: space-between;
+}
+
+.about__icons1{
+    display: flex;
+    flex-direction: row;
+    height: 170px;
+    justify-content: space-evenly;
+}
+
+.about__icons2{
+    display: flex;
+    flex-direction: row;
+    height: 170px;
+    justify-content: center;
+}
+/*Icon
+*************************/
+.icon1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 170px;
+}
+.icon1__txt {
+    text-align: center;
+    width: 260px;
+}
+
+/*Форма отправки
+*************************/
+.form__contact {
+    
+    height: 791px;
+    background: #ffffff url(img/kalk_bg.png) no-repeat;
+    background-position: center;
+}
+
+.contact__section {
+    text-align: center;
+    width: 100%;
+    
+}
+
+.contact__form {
+    
+    max-width: 600px;
+    margin: auto;
+    padding: 0 10px;
+    overflow: hidden;
+}
+.mt {
+    margin-top: 150px;
+    margin-bottom: 75px;
+}
+.contact__form__text {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 20px 0;
+    border: 0;
+    border-radius: 25px;
+    background: #fff;
+    padding: 20px 40px;
+    outline: none;
+    color: #0A2C09;
+    box-shadow: 0 13px 15px 0 rgba(0, 0, 0, 0.15);
+    
+    transition: 0.3s;
+}
+
+textarea.contact__form__text {
+    resize: none;
+    height: 100px;
+}
+
+.contact__form--btn {
+    border: 0;
+    background: #50E948;
+    border-radius: 25px;
+    padding: 12px 50px;
+    margin-top: 20px;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.15);
+    
+    transition: 0.3s;
+}
+
+.contact__form--btn:hover {
+    background: #44c13e;
+}
+/*Contacts
+*************************/
+
+.contacts {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 805px;
+    background: #ffffff url(img/contacts_bg.png) no-repeat;
+    background-position: center;
+}
+.contacts__inner {
+    display: flex;
+    flex-direction: row;
+}
+.inner__imgs {
+    margin-left: 30px;
+    max-width: 530px;
+    max-height: 350px;
+}
+.img1{
+    margin: 15px;
+}
+
+.inner__txt {
+    margin-left: 100px;
+    max-width: 410px;
+}
+.cont__txt {
+    margin-top: 15px;
+    text-transform: uppercase;
+    font-size: 36px;
+}
+/*************************/
+.magin__cont{
+    margin-top: 70px;
+}
+.micon {
+    margin-right: 20px;
+}
+.inner__contact {
+    text-transform: lowercase;
+    font-size: 18px;
+}
+
+/*Footer
+*************************/
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 243px;
+    background: #ffffff url(img/footer_bg.png) no-repeat;
+    background-position: center;
+}
+
+.conteiner__footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.footer__title {
+    text-transform: uppercase;
+    margin-bottom: 45px;
+    color: #28d61f;
+    opacity: 1;
+}
+
+.footer__inner1 {
+    margin-right: 120px;
+    margin-top: 110px;
+    font-size: 15px;
+    opacity: 0.6;
+    line-height: 2.2;
+}
+
+.footer__inner2 {
+    margin-right: 120px;
+    margin-top: 34px;
+    font-size: 15px;
+    opacity: 0.6;
+    line-height: 2.2;
+}
+
+
+
+/*Button
+*************************/
+
+.btn {
+    display: inline-block;
+    vertical-align: top;
+    padding: 15px 23px;
+    border-radius: 25px;
+    border-bottom: none;
+    
+    cursor: pointer;
+    box-shadow: 0 13px 25px 0 rgba(0, 0, 0, 0.15);
+    
+    font-size: 18px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+    
+}
+
+.btn--green {
+    display: inline-flex;
+    text-align: center;
+    background: #50E948;
+    margin-bottom: 330px;
+    transition: background .1s linear;
+    
+}
+
+.btn--green:hover {
+    background: #45c93e;
+}
+
+.image {
+    margin-left: 10px;
+    width: 18px;
+    height: 18px;
+}
+
+button {
+    margin-bottom: 5px;
+}
+.btn--call {
+    display: inline-block;
+    vertical-align: top;
+    padding: 6px 22px;
+    border-radius: 45px;
+    
+    border: 3px solid #50E948;
+   
+    font-size: 18px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #0A2C09; 
+}
