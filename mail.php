@@ -1,40 +1,30 @@
-<?php 
+<?php
+    $fio = $_POST['user_name'];
+    $email = &_POST['user_email'];
+    $phone = $_POST['user_phone'];
+    $message = $_POST['user_message'];
 
-require_once('phpmailer/PHPMailerAutoload.php');
-$mail = new PHPMailer;
-$mail->CharSet = 'utf-8';
+    $fio = htmlspecialchars($fio);
+    $email = htmlspecialchars($email);
+    $phone = htmlspecialchars($phone);
+    $message = htmlspecialchars($message);
+    
+    $fio = urldecode($fio);
+    $email = urldecode($email);
+    $phone = urldecode($phone);
+    $message = urldecode($message);
 
-$name = $_POST['user_name'];
-$phone = $_POST['user_phone'];
-$email = $_POST['user_email'];
+    $fio = trim($fio);
+    $email = trim($email);
+    $phone = trim($phone);
+    $message = trim($message);
 
-//$mail->SMTPDebug = 3;                               // Enable verbose debug output
-
-$mail->isSMTP();                                      // Set mailer to use SMTP
-$mail->Host = 'smtp.gmail.com';  																							// Specify main and backup SMTP servers
-$mail->SMTPAuth = true;                               // Enable SMTP authentication
-$mail->Username = 'dopol.akk.2@gmail.com'; // Ваш логин от почты с которой будут отправляться письма
-$mail->Password = '228471322MAtEMAtIkA'; // Ваш пароль от почты с которой будут отправляться письма
-$mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
-$mail->Port = 465; // TCP port to connect to / этот порт может отличаться у других провайдеров
-
-$mail->setFrom('dopol.akk.2@gmail.com'); // от кого будет уходить письмо?
-$mail->addAddress('gatalskiy.2014@gmail.com');     // Кому будет уходить письмо 
-//$mail->addAddress('ellen@example.com');               // Name is optional
-//$mail->addReplyTo('info@example.com', 'Information');
-//$mail->addCC('cc@example.com');
-//$mail->addBCC('bcc@example.com');
-//$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
-//$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
-$mail->isHTML(true);                                  // Set email format to HTML
-
-$mail->Subject = 'Заявка с тестового сайта';
-$mail->Body    = '' .$name . ' оставил заявку, его телефон ' .$phone. '<br>Почта этого пользователя: ' .$email;
-$mail->AltBody = '';
-
-if(!$mail->send()) {
-    echo 'Error';
-} else {
-    header('location: thank-you.html');
-}
-?>
+    echo $fio;
+    echo "<br>";
+    echo $email;
+    echo "<br>";  
+    echo $phone
+    echo "<br>";
+    echo $message;
+    echo "<br>";
+>
