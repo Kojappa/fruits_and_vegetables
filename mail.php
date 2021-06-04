@@ -27,3 +27,4 @@
     echo "<br>";
     echo $message;
     echo "<br>";
+?>
