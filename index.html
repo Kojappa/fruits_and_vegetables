@@ -193,18 +193,13 @@
                 <div class="contact__section">
                        
                     
-                    <form class="contact__form" id="form" action="https://formspree.io/f/{form_id}" method="POST">
+                    <form class="contact__form" id="lett_form" action="/index.html" method="POST">
                         <h1 class="mt">создать заказ</h1>
-                        <!-- Hidden Required Fields -->
-		                <input type="hidden" name="user_name" value="Fruit Delivery">
-		                <input type="hidden" name="user_email" value="gatalskiy.2014@mail.com">
-		                <input type="hidden" name="user_phone" value="Footer form">
-		                <!-- END Hidden Required Fields -->
                         <input name="user_name" type="text" class="contact__form__text _req" placeholder="Введите ваше имя" required>
                         <input name="user_email" type="e-mail" class="contact__form__text _req" placeholder="Введите ваш e-mail" required>
                         <input name="user_phone" type="text" class="contact__form__text _req" placeholder="Введите номер телефона" required>
                         <textarea name="user_message" class="contact__form__text" placeholder="Введите ваше сообщение"></textarea>
-			    <button type="submit" class="contact__form--btn">Отправить</button>
+                        <button type="submit" class="contact__form--btn">Отправить</button>
                     </form>
                 </div>
             </div>
@@ -273,7 +268,29 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-        
+        <script>
+            var onRecaptcha = function(token) {
+              var form = document.getElementById('lett_form')
+              form.submit()
+            }
+
+            var onSubmit = function(ev) {
+              ev.preventDefault()
+              if (ev.target.checkValidity()) {
+                grecaptcha.execute()
+              }
+            }
+
+            var onloadCallback = function() {
+              grecaptcha.render('recaptcha', {
+                'sitekey': "6Lcyy6oUAAAAAIbnPbhnPynqPfDrFiT6U77yd6mf",
+                'size': 'invisible',
+                'callback': onRecaptcha
+              })
+              var form = document.getElementById('register-form')
+              form.addEventListener('submit', onSubmit)
+            }
+      </script>
 	    <script src="main.js"></script>
     </body>
 </html>
