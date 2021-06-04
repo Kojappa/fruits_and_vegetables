@@ -23,7 +23,7 @@
     echo "<br>";
     echo $email;
     echo "<br>";  
-    echo $phone
+    echo $phone;
     echo "<br>";
     echo $message;
     echo "<br>";
