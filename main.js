@@ -47,7 +47,7 @@ $(document).ready(function() {
         infinite: true        
     });
     
-	/*** E-mail Ajax Send***/ 
+	/*** E-mail Ajax Send
 	$("form").submit(function() { //Change
 		var th = $(this);
 		$.ajax({
@@ -62,7 +62,7 @@ $(document).ready(function() {
 			}, 1000);
 		});
 		return false;
-	});
+	});***/
 });
 
 
